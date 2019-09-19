@@ -41,4 +41,17 @@ public class ContainerShipTest extends TestCase {
         assertEquals(status, containerShip.getStatus());
     }
 
+    public void testChangeName(){
+        final String name = "Hansa Carrier";
+        final LocalDate lauchDate = LocalDate.of(1989,2,1);
+        final int deadWeightTonnage = 26366;
+        final int containerCount = 0;
+        final Status status = Status.DockedAtHome;
+        final String newName = "Ocean Hope";
+
+        ContainerShip containerShip = new ContainerShip(name, lauchDate, deadWeightTonnage, containerCount, status);
+
+        assertTrue(containerShip.setName(newName));
+    }
+
 }
