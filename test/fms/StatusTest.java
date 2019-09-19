@@ -6,8 +6,11 @@ public class StatusTest extends TestCase {
 
     public void testCreateStatus(){
 
-        Setup setup = Setup.DockedAtHome;
+        int i = 0;
+        for(Status status: Status.values()){
+            assertEquals(Status.values()[i],status);
+            i++;
+        }
 
-        assertEquals(Setup.DockedAtHome,setup);
     }
 }
