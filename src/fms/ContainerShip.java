@@ -1,5 +1,7 @@
 package fms;
 
+import java.time.LocalDate;
+
 public class ContainerShip {
 
     private final String name = "Marco Polo";
@@ -7,7 +9,7 @@ public class ContainerShip {
     private final Status status = Status.DockedAtHome;
     private final int containerCount = 0;
 
-    public ContainerShip(String name) {
+    public ContainerShip(String name, LocalDate lauchDate, int deadWeightTonnage, int containerCount, Status status) {
         
     }
 
