@@ -17,6 +17,7 @@ public class ContainerShipTest extends TestCase {
         ContainerShip containerShip = new ContainerShip(name, lauchDate, deadWeightTonnage, containerCount, status);
 
         assertEquals(name, containerShip.getName());
+        assertEquals(lauchDate, containerShip.getLaunchDate());
         assertEquals(deadWeightTonnage, containerShip.getDeadWeightTonnage());
         assertEquals(containerCount, containerShip.getContainerCount());
         assertEquals(status, containerShip.getStatus());
@@ -31,6 +32,13 @@ public class ContainerShipTest extends TestCase {
         final Status status = Status.DockedAtHome;
 
         ContainerShip containerShip = new ContainerShip(name, lauchDate, deadWeightTonnage, containerCount, status);
+
+
+        assertEquals(name, containerShip.getName());
+        assertEquals(lauchDate, containerShip.getLaunchDate());
+        assertEquals(deadWeightTonnage, containerShip.getDeadWeightTonnage());
+        assertEquals(containerCount, containerShip.getContainerCount());
+        assertEquals(status, containerShip.getStatus());
     }
 
 }
