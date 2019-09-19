@@ -4,14 +4,18 @@ import java.time.LocalDate;
 
 public class ContainerShip {
 
-    private final String name = "Marco Polo";
-    private final LocalDate launchDate = LocalDate.of(2012,11,2);
-    private final int deadWeightTonnage = 187625;
-    private final Status status = Status.DockedAtHome;
-    private final int containerCount = 0;
+    private String name;
+    private final LocalDate launchDate;
+    private final int deadWeightTonnage;
+    private Status status = Status.DockedAtHome;
+    private int containerCount;
 
     public ContainerShip(String name, LocalDate lauchDate, int deadWeightTonnage, int containerCount, Status status) {
-        
+        this.name = name;
+        this.launchDate = lauchDate;
+        this.deadWeightTonnage = deadWeightTonnage;
+        this.containerCount = containerCount;
+        this.status = status;
     }
 
     public String getName() {
