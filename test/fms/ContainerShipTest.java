@@ -17,6 +17,9 @@ public class ContainerShipTest extends TestCase {
         ContainerShip containerShip = new ContainerShip(name);
 
         assertEquals(name, containerShip.getName());
+        assertEquals(deadWeightTonnage, containerShip.getDeadWeightTonnage());
+        assertEquals(containerCount, containerShip.getContainerCount());
+        assertEquals(status, containerShip.getStatus());
 
     }
 }
