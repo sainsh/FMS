@@ -37,4 +37,9 @@ public class ContainerShip {
     public LocalDate getLaunchDate() {
         return launchDate;
     }
+
+    public boolean setName(String newName) {
+        name = newName;
+        return true;
+    }
 }
