@@ -14,7 +14,7 @@ public class ContainerShipTest extends TestCase {
         final int containerCount = 0;
         final Status status = Status.DockedAtHome;
 
-        ContainerShip containerShip = new ContainerShip(name, lauchDate, deadWeightTonnage, containerCount, status);
+        ContainerShip containerShip = new ContainerShip(name,lauchDate,deadWeightTonnage,containerCount,status);
 
         assertEquals(name, containerShip.getName());
         assertEquals(lauchDate, containerShip.getLaunchDate());
@@ -31,8 +31,7 @@ public class ContainerShipTest extends TestCase {
         final int containerCount = 0;
         final Status status = Status.DockedAtHome;
 
-        ContainerShip containerShip = new ContainerShip(name, lauchDate, deadWeightTonnage, containerCount, status);
-
+        ContainerShip containerShip = createContainerShip();
 
         assertEquals(name, containerShip.getName());
         assertEquals(lauchDate, containerShip.getLaunchDate());
@@ -42,16 +41,23 @@ public class ContainerShipTest extends TestCase {
     }
 
     public void testChangeName(){
+        ContainerShip containerShip = createContainerShip();
+        final String newName = "Ocean Hope";
+
+        assertTrue(containerShip.setName(newName));
+    }
+
+    public ContainerShip createContainerShip(){
         final String name = "Hansa Carrier";
         final LocalDate lauchDate = LocalDate.of(1989,2,1);
         final int deadWeightTonnage = 26366;
         final int containerCount = 0;
         final Status status = Status.DockedAtHome;
-        final String newName = "Ocean Hope";
+
 
         ContainerShip containerShip = new ContainerShip(name, lauchDate, deadWeightTonnage, containerCount, status);
 
-        assertTrue(containerShip.setName(newName));
+        return containerShip;
     }
 
 }
