@@ -45,6 +45,24 @@ public class ContainerShipTest extends TestCase {
         final String newName = "Ocean Hope";
 
         assertTrue(containerShip.setName(newName));
+        assertEquals(newName, containerShip.getName());
+    }
+
+    public void testChangesStatus(){
+
+        ContainerShip ship = createContainerShip();
+
+        assertEquals(Status.DockedAtHome, ship.getStatus());
+
+        ship.setStatus(Status.OnVoyage);
+
+        assertEquals(Status.OnVoyage, ship.getStatus());
+
+        ship.setStatus(Status.DockedAway);
+
+        assertEquals(Status.DockedAway,ship.getStatus());
+
+
     }
 
     public ContainerShip createContainerShip(){
