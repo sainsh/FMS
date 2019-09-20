@@ -78,6 +78,20 @@ public class TankerTest extends TestCase {
         assertEquals(Status.DockedAway,tanker.getStatus());
 
     }
+    public void testChangeCargoDescriptionWhileDockedAtHome(){
+
+        final String cargoDescription = "crude oil";
+
+        Tanker tanker = createTanker();
+
+        assertEquals(Status.DockedAtHome, tanker.getStatus());
+        assertEquals("empty", tanker.getCargoDescription());
+
+        tanker.setCargoDescription(cargoDescription);
+
+        assertEquals(cargoDescription, tanker.getCargoDescription());
+
+    }
 
     public Tanker createTanker(){
         final String name = "Exxon Valdez";
@@ -89,6 +103,7 @@ public class TankerTest extends TestCase {
 
         return new Tanker(name,launchDate,dwt, cargoDescripion,tonnageVolume,status);
     }
+
 
 
 }
