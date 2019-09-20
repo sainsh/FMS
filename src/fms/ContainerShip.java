@@ -42,4 +42,8 @@ public class ContainerShip {
         name = newName;
         return true;
     }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
 }
