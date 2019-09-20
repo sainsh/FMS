@@ -119,9 +119,9 @@ public class ContainerShipTest extends TestCase {
 
         ContainerShip ship = createContainerShip();
 
-        final String output = "Name: " + ship.getName() + " Launch Date: " + ship.getLaunchDate() +
-                " Dead Weight Tonnage: " + ship.getDeadWeightTonnage() + " Container Count: " +
-                ship.getContainerCount() + " Status: " + ship.getStatus() + " Cargo: " + ship.getCargoDescription() +
+        final String output = "Name: " + ship.getName() + ", Launch Date: " + ship.getLaunchDate() +
+                ", Dead Weight Tonnage: " + ship.getDeadWeightTonnage() + ", Container Count: " +
+                ship.getContainerCount() + ", Status: " + ship.getStatus() + ", Cargo: " + ship.getCargoDescription() +
                 ".";
 
         assertEquals(output, ship.toString());

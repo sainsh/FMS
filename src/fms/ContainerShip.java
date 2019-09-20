@@ -11,7 +11,7 @@ public class ContainerShip {
     private Status status;
     private int containerCount;
 
-    public ContainerShip(String name, LocalDate launchDate, int deadWeightTonnage, String cargoDescription, int containerCount, Status status ) {
+    public ContainerShip(String name, LocalDate launchDate, int deadWeightTonnage, String cargoDescription, int containerCount, Status status) {
         this.name = name;
         this.launchDate = launchDate;
         this.deadWeightTonnage = deadWeightTonnage;
@@ -58,5 +58,11 @@ public class ContainerShip {
             this.cargoDescription = cargoDescription;
 
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Name: " + name + ", Launch Date: " + launchDate + ", Dead Weight Tonnage: " + deadWeightTonnage +
+                ", Container Count: " + containerCount + ", Status: " + status + ", Cargo: " + cargoDescription + ".";
     }
 }
