@@ -92,6 +92,22 @@ public class TankerTest extends TestCase {
         assertEquals(cargoDescription, tanker.getCargoDescription());
 
     }
+    public void testChangeCargoDescriptionWhileOnVoyage(){
+
+        final String cargoDescription = "crude oil";
+
+        Tanker tanker = createTanker();
+
+        assertEquals(Status.DockedAtHome, tanker.getStatus());
+        assertEquals("empty", tanker.getCargoDescription());
+        tanker.setStatus(Status.OnVoyage);
+        assertEquals(Status.OnVoyage, tanker.getStatus());
+
+        tanker.setCargoDescription(cargoDescription);
+
+        assertFalse(tanker.getCargoDescription().equals(cargoDescription));
+
+    }
 
     public Tanker createTanker(){
         final String name = "Exxon Valdez";
