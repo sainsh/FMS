@@ -1,128 +1,101 @@
 package fms;
 
-import junit.framework.TestCase;
-
 import java.time.LocalDate;
 
 
-public class TankerTest extends TestCase {
+public class TankerTest extends FreighterBaseTest {
 
-    public void testCreateTankerFakeIt(){
+    public void testCreateTankerFakeIt() {
 
         final String name = "Seawise Giant";
-        final LocalDate launchDate = LocalDate.of(1979,12,4);
+        final LocalDate launchDate = LocalDate.of(1979, 12, 4);
         final int dwt = 564763;
         final int tonnageVolume = 0;
         final Status status = Status.DockedAtHome;
-        final String cargoDescripion ="empty";
+        final String cargoDescription = "empty";
 
-        Tanker tanker = new Tanker(name,launchDate,dwt, cargoDescripion,tonnageVolume,status);
+        Tanker tanker = new Tanker(name, launchDate, dwt, cargoDescription, tonnageVolume, status);
 
-        assertEquals(name, tanker.getName());
-        assertEquals(launchDate, tanker.getLaunchDate());
-        assertEquals(dwt, tanker.getDeadWeightTonnage());
+        super.testCreateFreighter(tanker,name,launchDate,dwt,status);
+
         assertEquals(tonnageVolume, tanker.getTonnageVolume());
-        assertEquals(status, tanker.getStatus());
 
 
 
     }
 
-    public void testCreateTanker(){
+    public void testCreateTanker() {
 
         final String name = "Exxon Valdez";
-        final LocalDate launchDate = LocalDate.of(1986,10,14);
+        final LocalDate launchDate = LocalDate.of(1986, 10, 14);
         final int dwt = 214861;
         final int tonnageVolume = 0;
         final Status status = Status.DockedAtHome;
-        final String cargoDescripion ="empty";
+        final String cargoDescription = "empty";
 
-        Tanker tanker = new Tanker(name,launchDate,dwt, cargoDescripion,tonnageVolume,status);
+        Tanker tanker = new Tanker(name, launchDate, dwt, cargoDescription, tonnageVolume, status);
 
-        assertEquals(name, tanker.getName());
-        assertEquals(launchDate, tanker.getLaunchDate());
-        assertEquals(dwt, tanker.getDeadWeightTonnage());
+        super.testCreateFreighter(tanker,name,launchDate,dwt,status);
+
         assertEquals(tonnageVolume, tanker.getTonnageVolume());
-        assertEquals(status, tanker.getStatus());
 
 
     }
 
-    public void testChangeName(){
-        final String name = "Exxon Valdez";
+    public void testChangeName() {
+
 
         final String newName = "Mediterranean";
 
         Tanker tanker = createTanker();
 
-        assertEquals(name, tanker.getName());
+        super.testChangeName(tanker, newName);
 
-        tanker.setName(newName);
-
-        assertEquals(newName, tanker.getName());
 
 
     }
-    public void testChangeStatus(){
+
+    public void testChangeStatus() {
 
         Tanker tanker = createTanker();
 
-        assertEquals(Status.DockedAtHome, tanker.getStatus());
-
-        tanker.setStatus(Status.OnVoyage);
-
-        assertEquals(Status.OnVoyage, tanker.getStatus());
-
-        tanker.setStatus(Status.DockedAway);
-
-        assertEquals(Status.DockedAway,tanker.getStatus());
+        super.testChangeStatus(tanker);
 
     }
-    public void testChangeCargoDescriptionWhileDockedAtHome(){
+
+    public void testChangeCargoDescriptionWhileDockedAtHome() {
 
         final String cargoDescription = "crude oil";
 
         Tanker tanker = createTanker();
 
-        assertEquals(Status.DockedAtHome, tanker.getStatus());
-        assertEquals("empty", tanker.getCargoDescription());
+        super.testChangeCargoDescriptionWhileDockedAtHome(tanker,cargoDescription);
 
-        tanker.setCargoDescription(cargoDescription);
-
-        assertEquals(cargoDescription, tanker.getCargoDescription());
 
     }
-    public void testChangeCargoDescriptionWhileOnVoyage(){
+
+    public void testChangeCargoDescriptionWhileOnVoyage() {
 
         final String cargoDescription = "crude oil";
 
         Tanker tanker = createTanker();
 
-        assertEquals(Status.DockedAtHome, tanker.getStatus());
-        assertEquals("empty", tanker.getCargoDescription());
-        tanker.setStatus(Status.OnVoyage);
-        assertEquals(Status.OnVoyage, tanker.getStatus());
+        super.testChangeCargoDescriptionFailOnVoyage(tanker,cargoDescription, "Empty");
 
-        tanker.setCargoDescription(cargoDescription);
-
-        assertFalse(tanker.getCargoDescription().equals(cargoDescription));
 
     }
-    public void testChangeCargoDescriptionWhileDockedAway(){
+
+    public void testChangeCargoDescriptionWhileDockedAway() {
 
         final String cargoDescription = "crude oil";
 
         Tanker tanker = createTanker();
 
-        assertEquals(Status.DockedAtHome, tanker.getStatus());
-        assertEquals("empty", tanker.getCargoDescription());
-
-        tanker.setCargoDescription(cargoDescription);
-
-        assertEquals(cargoDescription, tanker.getCargoDescription());
+        super.testChangeCargoDescriptionWhileDockedAtHome(tanker,cargoDescription);
 
     }
-    public void testFullReport(){
+
+    public void testFullReport() {
 
         Tanker tanker = createTanker();
 
@@ -131,24 +104,20 @@ public class TankerTest extends TestCase {
                 tanker.getTonnageVolume() + ", Status: " + tanker.getStatus() + ", Cargo: " + tanker.getCargoDescription() +
                 ".";
 
-        assertEquals(output, tanker.toString());
+        super.testFullReport(tanker,output);
     }
 
 
-    public Tanker createTanker(){
+    public Tanker createTanker() {
         final String name = "Exxon Valdez";
-        final LocalDate launchDate = LocalDate.of(1986,10,14);
+        final LocalDate launchDate = LocalDate.of(1986, 10, 14);
         final int dwt = 214861;
         final int tonnageVolume = 0;
         final Status status = Status.DockedAtHome;
-        final String cargoDescripion ="empty";
+        final String cargoDescripion = "Empty";
 
-        return new Tanker(name,launchDate,dwt, cargoDescripion,tonnageVolume,status);
+        return new Tanker(name, launchDate, dwt, cargoDescripion, tonnageVolume, status);
     }
-
-
-
-
 
 
 }

@@ -1,69 +1,59 @@
 package fms;
 
-import junit.framework.TestCase;
-
 import java.time.LocalDate;
 
-public class ContainerShipTest extends TestCase {
+public class ContainerShipTest extends FreighterBaseTest {
 
     final String cargoDescription = "Nike shoes";
     final String cargoDescriptionEmpty = "Empty";
 
-    public void testCreateContainerShipMarcoPolo() {
+    public void testCreateContainerShipFakeIt() {
 
         final String name = "Marco Polo";
-        final LocalDate lauchDate = LocalDate.of(2012, 11, 2);
+        final LocalDate launchDate = LocalDate.of(2012, 11, 2);
         final int deadWeightTonnage = 187625;
         final int containerCount = 0;
         final Status status = Status.DockedAtHome;
 
-        ContainerShip containerShip = new ContainerShip(name, lauchDate, deadWeightTonnage, "NA", containerCount, status);
+        ContainerShip containerShip = new ContainerShip(name, launchDate, deadWeightTonnage, "NA", containerCount, status);
 
-        assertEquals(name, containerShip.getName());
-        assertEquals(lauchDate, containerShip.getLaunchDate());
-        assertEquals(deadWeightTonnage, containerShip.getDeadWeightTonnage());
+        super.testCreateFreighter(containerShip , name, launchDate,deadWeightTonnage,status);
+
         assertEquals(containerCount, containerShip.getContainerCount());
-        assertEquals(status, containerShip.getStatus());
+
 
     }
 
     public void testCreateContainerShipHansaCarrier() {
         final String name = "Hansa Carrier";
-        final LocalDate lauchDate = LocalDate.of(1989, 2, 1);
+        final LocalDate launchDate = LocalDate.of(1989, 2, 1);
         final int deadWeightTonnage = 26366;
         final int containerCount = 0;
         final Status status = Status.DockedAtHome;
 
         ContainerShip containerShip = createContainerShip();
 
-        assertEquals(name, containerShip.getName());
-        assertEquals(lauchDate, containerShip.getLaunchDate());
-        assertEquals(deadWeightTonnage, containerShip.getDeadWeightTonnage());
+        super.testCreateFreighter(containerShip , name, launchDate,deadWeightTonnage,status);
+
         assertEquals(containerCount, containerShip.getContainerCount());
-        assertEquals(status, containerShip.getStatus());
+
     }
 
     public void testChangeName() {
         ContainerShip containerShip = createContainerShip();
         final String newName = "Ocean Hope";
 
-        assertTrue(containerShip.setName(newName));
-        assertEquals(newName, containerShip.getName());
+        super.testChangeName(containerShip, newName);
+
     }
 
     public void testChangesStatus() {
 
         ContainerShip ship = createContainerShip();
 
-        assertEquals(Status.DockedAtHome, ship.getStatus());
+        super.testChangeStatus(ship);
 
-        ship.setStatus(Status.OnVoyage);
 
-        assertEquals(Status.OnVoyage, ship.getStatus());
-
-        ship.setStatus(Status.DockedAway);
-
-        assertEquals(Status.DockedAway, ship.getStatus());
 
 
     }
@@ -73,28 +63,18 @@ public class ContainerShipTest extends TestCase {
 
         ContainerShip ship = createContainerShip();
 
-        assertFalse(ship.getCargoDescription().equals(cargoDescription));
+        super.testChangeCargoDescriptionWhileDockedAtHome(ship,cargoDescription);
 
-        ship.setCargoDescription(cargoDescription);
 
-        assertTrue(ship.getCargoDescription().equals(cargoDescription));
     }
 
     public void testChangeCargoDescriptionFailOnVoyage() {
 
 
         ContainerShip ship = createContainerShip();
-        ship.setCargoDescription(cargoDescription);
 
-        assertEquals(cargoDescription, ship.getCargoDescription());
+        super.testChangeCargoDescriptionFailOnVoyage(ship,cargoDescription,cargoDescriptionEmpty);
 
-        ship.setStatus(Status.OnVoyage);
-
-        assertEquals(Status.OnVoyage, ship.getStatus());
-
-        ship.setCargoDescription(cargoDescriptionEmpty);
-
-        assertFalse(ship.getCargoDescription().equals(cargoDescriptionEmpty));
 
 
     }
@@ -102,16 +82,9 @@ public class ContainerShipTest extends TestCase {
     public void testChangeCargoDescriptionDockedAway() {
 
         ContainerShip ship = createContainerShip();
-        ship.setCargoDescription(cargoDescription);
 
-        assertEquals(cargoDescription, ship.getCargoDescription());
+        super.testChangeCargoDescriptionDockedAway(ship,cargoDescription,cargoDescriptionEmpty);
 
-        ship.setStatus(Status.DockedAway);
-        assertEquals(Status.DockedAway, ship.getStatus());
-
-        ship.setCargoDescription(cargoDescriptionEmpty);
-
-        assertEquals(cargoDescriptionEmpty, ship.getCargoDescription());
 
     }
 
@@ -124,7 +97,11 @@ public class ContainerShipTest extends TestCase {
                 ship.getContainerCount() + ", Status: " + ship.getStatus() + ", Cargo: " + ship.getCargoDescription() +
                 ".";
 
-        assertEquals(output, ship.toString());
+        super.testFullReport(ship, output);
+
+
+
+
     }
 
 
