@@ -56,6 +56,7 @@ public class ContainerShip {
     public void setCargoDescription(String cargoDescription) {
         if (status != Status.OnVoyage) {
             this.cargoDescription = cargoDescription;
+
         }
     }
 }
