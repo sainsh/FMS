@@ -6,6 +6,8 @@ import java.time.LocalDate;
 
 public class ContainerShipTest extends TestCase {
 
+    final String cargoDescription = "Nike shoes";
+
     public void testCreateContainerShipMarcoPolo(){
 
         final String name = "Marco Polo";
@@ -64,9 +66,9 @@ public class ContainerShipTest extends TestCase {
 
 
     }
-    public void testChangeCargoDiscription(){
+    public void testChangeCargoDescription(){
 
-        final String cargoDescription = "Nike shoes";
+
 
         ContainerShip ship = createContainerShip();
 
@@ -77,6 +79,26 @@ public class ContainerShipTest extends TestCase {
         assertTrue(ship.getCargoDescription().equals(cargoDescription));
     }
 
+    public void testChangeCargoDescriptionFailOnVoyage(){
+
+        final String cargoDescriptionEmpty = "Empty";
+
+        ContainerShip ship = createContainerShip();
+        ship.setCargoDescription(cargoDescription);
+
+        assertEquals(cargoDescription, ship.getCargoDescription());
+
+        ship.setStatus(Status.OnVoyage);
+
+        assertEquals(Status.OnVoyage, ship.getStatus());
+
+        ship.setCargoDescription(cargoDescriptionEmpty);
+
+        assertFalse(ship.getCargoDescription().equals(cargoDescriptionEmpty));
+
+
+    }
+
 
 
     public ContainerShip createContainerShip(){
@@ -85,7 +107,7 @@ public class ContainerShipTest extends TestCase {
         final int deadWeightTonnage = 26366;
         final int containerCount = 0;
         final Status status = Status.DockedAtHome;
-        final String cargoDescription = "NA";
+        final String cargoDescription = "Empty";
 
 
         ContainerShip containerShip = new ContainerShip(name, lauchDate, deadWeightTonnage,cargoDescription, containerCount, status);
