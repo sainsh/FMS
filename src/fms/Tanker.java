@@ -2,31 +2,23 @@ package fms;
 
 import java.time.LocalDate;
 
-public class Tanker {
+public class Tanker extends FreighterBase{
+
+    private int tonnageVolume;
 
 
 
-    public Tanker(String name, LocalDate launchDate, int dwt, int tonnageVolume, Status status) {
+    public Tanker(String name, LocalDate launchDate, int dwt, String cargoDescription, int tonnageVolume, Status status) {
+        super(name, launchDate,dwt, cargoDescription, status);
 
-    }
+        this.tonnageVolume = tonnageVolume;
 
-    public String getName() {
-        return "Seawise Giant";
-    }
 
-    public LocalDate getLaunchDate() {
-        return LocalDate.of(1979,12,4);
-    }
-
-    public int getDeadWeightTonnage() {
-        return 564763;
     }
 
     public int getTonnageVolume() {
-        return 0;
+        return tonnageVolume;
     }
 
-    public Status getStatus() {
-        return Status.DockedAtHome;
-    }
+
 }
