@@ -122,6 +122,18 @@ public class TankerTest extends TestCase {
         assertEquals(cargoDescription, tanker.getCargoDescription());
 
     }
+    public void testFullReport(){
+
+        Tanker tanker = createTanker();
+
+        final String output = "Name: " + tanker.getName() + ", Launch Date: " + tanker.getLaunchDate() +
+                ", Dead Weight Tonnage: " + tanker.getDeadWeightTonnage() + ", Container Count: " +
+                tanker.getTonnageVolume() + ", Status: " + tanker.getStatus() + ", Cargo: " + tanker.getCargoDescription() +
+                ".";
+
+        assertEquals(output, tanker.toString());
+    }
+
 
     public Tanker createTanker(){
         final String name = "Exxon Valdez";
