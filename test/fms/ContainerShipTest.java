@@ -64,6 +64,20 @@ public class ContainerShipTest extends TestCase {
 
 
     }
+    public void testChangeCargoDiscription(){
+
+        final String cargoDescription = "Nike shoes";
+
+        ContainerShip ship = createContainerShip();
+
+        assertFalse(ship.getCargoDescription().equals(cargoDescription));
+
+        ship.setCargoDescription(cargoDescription);
+
+        assertTrue(ship.getCargoDescription().equals(cargoDescription));
+    }
+
+
 
     public ContainerShip createContainerShip(){
         final String name = "Hansa Carrier";
