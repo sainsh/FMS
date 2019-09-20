@@ -7,12 +7,12 @@ public class ContainerShip {
     private String name;
     private final LocalDate launchDate;
     private final int deadWeightTonnage;
-    private Status status = Status.DockedAtHome;
+    private Status status;
     private int containerCount;
 
-    public ContainerShip(String name, LocalDate lauchDate, int deadWeightTonnage, int containerCount, Status status) {
+    public ContainerShip(String name, LocalDate launchDate, int deadWeightTonnage, int containerCount, Status status) {
         this.name = name;
-        this.launchDate = lauchDate;
+        this.launchDate = launchDate;
         this.deadWeightTonnage = deadWeightTonnage;
         this.containerCount = containerCount;
         this.status = status;
