@@ -4,16 +4,18 @@ import java.time.LocalDate;
 
 public class ContainerShip {
 
+    private String cargoDescription;
     private String name;
     private final LocalDate launchDate;
     private final int deadWeightTonnage;
     private Status status;
     private int containerCount;
 
-    public ContainerShip(String name, LocalDate launchDate, int deadWeightTonnage, int containerCount, Status status) {
+    public ContainerShip(String name, LocalDate launchDate, int deadWeightTonnage, String cargoDescription, int containerCount, Status status ) {
         this.name = name;
         this.launchDate = launchDate;
         this.deadWeightTonnage = deadWeightTonnage;
+        this.cargoDescription = cargoDescription;
         this.containerCount = containerCount;
         this.status = status;
     }
@@ -45,5 +47,13 @@ public class ContainerShip {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public String getCargoDescription() {
+        return cargoDescription;
+    }
+
+    public void setCargoDescription(String cargoDescription) {
+        this.cargoDescription=cargoDescription;
     }
 }
