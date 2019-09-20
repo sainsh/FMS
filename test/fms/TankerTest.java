@@ -49,16 +49,11 @@ public class TankerTest extends TestCase {
     }
 
     public void testChangeName(){
-
         final String name = "Exxon Valdez";
-        final LocalDate launchDate = LocalDate.of(1986,10,14);
-        final int dwt = 214861;
-        final int tonnageVolume = 0;
-        final Status status = Status.DockedAtHome;
-        final String cargoDescripion ="empty";
+
         final String newName = "Mediterranean";
 
-        Tanker tanker = new Tanker(name,launchDate,dwt, cargoDescripion,tonnageVolume,status);
+        Tanker tanker = createTanker();
 
         assertEquals(name, tanker.getName());
 
@@ -66,5 +61,18 @@ public class TankerTest extends TestCase {
 
         assertEquals(newName, tanker.getName());
 
+
+    }
+
+    public Tanker createTanker(){
+        final String name = "Exxon Valdez";
+        final LocalDate launchDate = LocalDate.of(1986,10,14);
+        final int dwt = 214861;
+        final int tonnageVolume = 0;
+        final Status status = Status.DockedAtHome;
+        final String cargoDescripion ="empty";
+
+        Tanker tanker = new Tanker(name,launchDate,dwt, cargoDescripion,tonnageVolume,status);
+        return tanker;
     }
 }
