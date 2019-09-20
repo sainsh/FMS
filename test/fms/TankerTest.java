@@ -87,8 +87,7 @@ public class TankerTest extends TestCase {
         final Status status = Status.DockedAtHome;
         final String cargoDescripion ="empty";
 
-        Tanker tanker = new Tanker(name,launchDate,dwt, cargoDescripion,tonnageVolume,status);
-        return tanker;
+        return new Tanker(name,launchDate,dwt, cargoDescripion,tonnageVolume,status);
     }
 
 
