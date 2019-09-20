@@ -21,4 +21,6 @@ public interface Freighter {
 
     void setCargoDescription(String cargoDescription);
 
+    String toString();
+
 }

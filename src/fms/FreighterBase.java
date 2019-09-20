@@ -54,5 +54,10 @@ public abstract class  FreighterBase implements Freighter {
 
         }
     }
+    @Override
+    public String toString() {
+        return "Name: " + getName() + ", Launch Date: " + getLaunchDate() + ", Dead Weight Tonnage: " + getDeadWeightTonnage() +
+                ", Status: " + getStatus() + ", Cargo: " + getCargoDescription() + ".";
+    }
 
 }

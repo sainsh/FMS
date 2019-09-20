@@ -127,7 +127,7 @@ public class TankerTest extends TestCase {
         Tanker tanker = createTanker();
 
         final String output = "Name: " + tanker.getName() + ", Launch Date: " + tanker.getLaunchDate() +
-                ", Dead Weight Tonnage: " + tanker.getDeadWeightTonnage() + ", Container Count: " +
+                ", Dead Weight Tonnage: " + tanker.getDeadWeightTonnage() + ", Tonnage Volume: " +
                 tanker.getTonnageVolume() + ", Status: " + tanker.getStatus() + ", Cargo: " + tanker.getCargoDescription() +
                 ".";
 

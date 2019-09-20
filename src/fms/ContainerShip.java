@@ -21,7 +21,16 @@ public class ContainerShip extends FreighterBase{
 
     @Override
     public String toString() {
-        return "Name: " + getName() + ", Launch Date: " + getLaunchDate() + ", Dead Weight Tonnage: " + getDeadWeightTonnage() +
-                ", Container Count: " + containerCount + ", Status: " + getStatus() + ", Cargo: " + getCargoDescription() + ".";
+        String output = super.toString();
+        int first = output.indexOf(",");
+        int second = output.indexOf(",", first+1);
+        int third = output.indexOf(",",second+1);
+
+        String firstPart = output.substring(0,third);
+        String lastPart = output.substring(third);
+
+        String middlePart = ", Container Count: "+ containerCount;
+
+        return firstPart + middlePart + lastPart;
     }
 }
