@@ -39,6 +39,23 @@ public class FleetTest extends TestCase {
         assertEquals(1,fleet.getNumberOfShipsLaunchedAfter(LocalDate.of(1987,5,1)));
     }
 
+    public void testChangeCargoAndStatusAndDisplayReport(){
+
+        Fleet fleet = createFleet();
+
+        Freighter ship = fleet.getFreighterByName("Hansa Carrier");
+
+        ship.setCargoDescription("Nike shoes");
+        ship.setStatus(Status.OnVoyage);
+
+        final String output = "Name: " + ship.getName() + ", Launch Date: " + ship.getLaunchDate() +
+                ", Dead Weight Tonnage: " + ship.getDeadWeightTonnage() + ", Container Count: " +
+                ((ContainerShip)ship).getContainerCount() + ", Status: " + ship.getStatus() + ", Cargo: " + ship.getCargoDescription() +
+                ".";
+
+        assertEquals(output,ship.toString());
+    }
+
     private Fleet createFleet() {
         final String cName = "Hansa Carrier";
         final LocalDate cLaunchDate = LocalDate.of(1989, 2, 1);
