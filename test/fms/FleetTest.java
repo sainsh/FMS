@@ -9,7 +9,7 @@ public class FleetTest extends TestCase {
 
     public void testCreateFleetFakeIt() {
 
-        Fleet fleet = new Fleet(new ArrayList<Freighter>());
+        Fleet fleet = new Fleet(new ArrayList<>());
         int totalDWT = 0;
 
         for (Freighter ship :
@@ -37,7 +37,7 @@ public class FleetTest extends TestCase {
 
     }
 
-    public Fleet createFleet() {
+    private Fleet createFleet() {
         final String cName = "Hansa Carrier";
         final LocalDate cLaunchDate = LocalDate.of(1989, 2, 1);
         final int cDeadWeightTonnage = 26366;
@@ -57,7 +57,7 @@ public class FleetTest extends TestCase {
 
         Tanker tanker = new Tanker(name, launchDate, dwt, cargoDescripion, tonnageVolume, status);
 
-        return new Fleet(new ArrayList<Freighter>() {
+        return new Fleet(new ArrayList<>() {
             {
                 add(containerShip);
                 add(tanker);

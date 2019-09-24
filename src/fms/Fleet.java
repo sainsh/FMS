@@ -11,6 +11,6 @@ public class Fleet {
     }
 
     public ArrayList<Freighter> getFreighters() {
-        return new ArrayList<Freighter>();
+        return freighters;
     }
 }
