@@ -36,4 +36,16 @@ public class Fleet {
 
         return totalDWT;
     }
+
+    public Freighter getFreighterByName(String name) {
+
+        for (Freighter freighter: freighters) {
+
+            if(freighter.getName().equals(name)){
+                return freighter;
+            }
+
+        }
+        return null;
+    }
 }
