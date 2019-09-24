@@ -37,6 +37,13 @@ public class FleetTest extends TestCase {
 
     }
 
+    public void testCreateFleetWithLaunchDate(){
+
+        Fleet fleet = new Fleet(new ArrayList<>());
+
+        assertTrue(fleet.getLaunchDate() >LocalDate.of(1900,1,1));
+    }
+
     private Fleet createFleet() {
         final String cName = "Hansa Carrier";
         final LocalDate cLaunchDate = LocalDate.of(1989, 2, 1);
