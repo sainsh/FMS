@@ -37,11 +37,11 @@ public class FleetTest extends TestCase {
 
     }
 
-    public void testCreateFleetWithLaunchDate(){
+    public void testNumberOfShipsLaunchedAfter(){
 
         Fleet fleet = new Fleet(new ArrayList<>());
 
-        assertTrue(fleet.getLaunchDate() >LocalDate.of(1900,1,1));
+        assertEquals(0,fleet.getNumberOfShipsLaunchedAfter(LocalDate.of(1900,1,1)));
     }
 
     private Fleet createFleet() {
