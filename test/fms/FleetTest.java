@@ -12,7 +12,7 @@ public class FleetTest extends TestCase {
         Fleet fleet = new Fleet(new ArrayList<>());
 
         assertEquals(0, fleet.getFreighters().size());
-        assertEquals(0, fleet.getTotalTonnage());
+        assertEquals(0, fleet.getTotalDeadWeightTonnage());
     }
 
     public void testCreateFleet() {
@@ -22,7 +22,7 @@ public class FleetTest extends TestCase {
 
 
         assertEquals(2, fleet.getFreighters().size());
-        assertEquals(expectedTotalDWT, fleet.getTotalTonnage());
+        assertEquals(expectedTotalDWT, fleet.getTotalDeadWeightTonnage());
 
     }
 
