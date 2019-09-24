@@ -22,6 +22,21 @@ public class FleetTest extends TestCase {
         assertEquals(0, totalDWT);
     }
 
+    public void testCreateFleet() {
+
+        Fleet fleet = createFleet();
+        final int expectedTotalDWT = 241227;
+
+        int totalDWT = 0;
+        for (Freighter ship : fleet.getFreighters()){
+            totalDWT += ship.getDeadWeightTonnage();
+        }
+
+        assertEquals(2, fleet.getFreighters().size());
+        assertEquals(expectedTotalDWT, totalDWT);
+
+    }
+
     public Fleet createFleet() {
         final String cName = "Hansa Carrier";
         final LocalDate cLaunchDate = LocalDate.of(1989, 2, 1);
