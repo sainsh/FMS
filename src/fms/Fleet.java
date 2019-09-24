@@ -26,4 +26,14 @@ public class Fleet {
         }
         return numberOfShips;
     }
+
+    public int getTotalTonnage(){
+        int totalDWT = 0;
+
+        for (Freighter ship: freighters) {
+            totalDWT +=ship.getDeadWeightTonnage();
+        }
+
+        return totalDWT;
+    }
 }

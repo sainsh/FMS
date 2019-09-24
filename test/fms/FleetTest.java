@@ -10,16 +10,9 @@ public class FleetTest extends TestCase {
     public void testCreateFleetFakeIt() {
 
         Fleet fleet = new Fleet(new ArrayList<>());
-        int totalDWT = 0;
-
-        for (Freighter ship :
-                fleet.getFreighters()) {
-            totalDWT += ship.getDeadWeightTonnage();
-
-        }
 
         assertEquals(0, fleet.getFreighters().size());
-        assertEquals(0, totalDWT);
+        assertEquals(0, fleet.getTotalTonnage());
     }
 
     public void testCreateFleet() {
@@ -27,13 +20,9 @@ public class FleetTest extends TestCase {
         Fleet fleet = createFleet();
         final int expectedTotalDWT = 241227;
 
-        int totalDWT = 0;
-        for (Freighter ship : fleet.getFreighters()){
-            totalDWT += ship.getDeadWeightTonnage();
-        }
 
         assertEquals(2, fleet.getFreighters().size());
-        assertEquals(expectedTotalDWT, totalDWT);
+        assertEquals(expectedTotalDWT, fleet.getTotalTonnage());
 
     }
 
