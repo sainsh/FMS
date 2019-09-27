@@ -56,4 +56,16 @@ public class Fleet {
     public int getNumberOfFreighters() {
         return freighters.size();
     }
+
+    public int getTotalDeadWeightTonnageWithStatus(Status status) {
+        int DWT=0;
+        for (Freighter freighter:
+             freighters) {
+            if(freighter.getStatus() == status){
+                DWT += freighter.getDeadWeightTonnage();
+            }
+        }
+
+        return DWT;
+    }
 }
