@@ -8,7 +8,7 @@ public class Fleet {
     private final ArrayList<Freighter> freighters;
 
     public Fleet(ArrayList<Freighter> freighters) {
-        this.freighters=freighters;
+        this.freighters = freighters;
     }
 
     public ArrayList<Freighter> getFreighters() {
@@ -19,19 +19,19 @@ public class Fleet {
     public int getNumberOfShipsLaunchedAfter(LocalDate date) {
         int numberOfShips = 0;
 
-        for (Freighter ship: freighters) {
-            if(ship.getLaunchDate().compareTo(date) > 0){
+        for (Freighter ship : freighters) {
+            if (ship.getLaunchDate().compareTo(date) > 0) {
                 numberOfShips++;
             }
         }
         return numberOfShips;
     }
 
-    public int getTotalDeadWeightTonnage(){
+    public int getTotalDeadWeightTonnage() {
         int totalDWT = 0;
 
-        for (Freighter ship: freighters) {
-            totalDWT +=ship.getDeadWeightTonnage();
+        for (Freighter ship : freighters) {
+            totalDWT += ship.getDeadWeightTonnage();
         }
 
         return totalDWT;
@@ -39,9 +39,9 @@ public class Fleet {
 
     public Freighter getFreighterByName(String name) {
 
-        for (Freighter freighter: freighters) {
+        for (Freighter freighter : freighters) {
 
-            if(freighter.getName().equals(name)){
+            if (freighter.getName().equals(name)) {
                 return freighter;
             }
 
@@ -58,14 +58,29 @@ public class Fleet {
     }
 
     public int getTotalDeadWeightTonnageWithStatus(Status status) {
-        int DWT=0;
-        for (Freighter freighter:
-             freighters) {
-            if(freighter.getStatus() == status){
+        int DWT = 0;
+        for (Freighter freighter :
+                freighters) {
+            if (freighter.getStatus() == status) {
                 DWT += freighter.getDeadWeightTonnage();
             }
         }
 
         return DWT;
+    }
+
+    public int getContainerCountWithStatus(Status status) {
+        int containerCount = 0;
+        for (Freighter freighter :
+                freighters) {
+
+            if (freighter.getClass() == ContainerShip.class) {
+                if (freighter.getStatus() == status) {
+                    containerCount += ((ContainerShip)freighter).getContainerCount();
+                }
+            }
+        }
+
+        return containerCount;
     }
 }
