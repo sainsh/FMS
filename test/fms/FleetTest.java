@@ -69,6 +69,14 @@ public class FleetTest extends TestCase {
 
     }
 
+    public void testTotalDeadWeightTonnageDockedAtHome(){
+        Fleet fleet = createFleet();
+
+        assertEquals(241227,fleet.getTotalDeadWeightTonnage());
+        fleet.getFreighterByName("Hansa Carrier").setStatus(Status.OnVoyage);
+        assertEquals(214861,fleet.getTotalDeadWeightTonnageWithStatus(Status.DockedAtHome));
+    }
+
     private Fleet createFleet() {
         final String cName = "Hansa Carrier";
         final LocalDate cLaunchDate = LocalDate.of(1989, 2, 1);
