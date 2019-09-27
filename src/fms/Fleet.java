@@ -48,4 +48,12 @@ public class Fleet {
         }
         return null;
     }
+
+    public void removeFreighter(String name) {
+        freighters.remove(getFreighterByName(name));
+    }
+
+    public int getNumberOfFreighters() {
+        return freighters.size();
+    }
 }
