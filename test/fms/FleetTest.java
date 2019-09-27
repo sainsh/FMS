@@ -56,6 +56,19 @@ public class FleetTest extends TestCase {
         assertEquals(output,ship.toString());
     }
 
+    public void testRemoveFreighterFromFleet(){
+
+        Fleet fleet = createFleet();
+
+        String tName = "Exxon Valdez";
+
+        fleet.removeFreighter(tName);
+
+        assertEquals(1, fleet.getNumberOfFreighters());
+        assertEquals(null, fleet.getFreighterByName(tName));
+
+    }
+
     private Fleet createFleet() {
         final String cName = "Hansa Carrier";
         final LocalDate cLaunchDate = LocalDate.of(1989, 2, 1);
