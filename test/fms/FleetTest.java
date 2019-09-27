@@ -77,6 +77,20 @@ public class FleetTest extends TestCase {
         assertEquals(214861,fleet.getTotalDeadWeightTonnageWithStatus(Status.DockedAtHome));
     }
 
+    public void testContainerCountOnVoyage(){
+        Fleet fleet = createFleet();
+
+        assertEquals(0, fleet.getContainerCountWithStatus(Status.OnVoyage));
+
+        ContainerShip hansa = (ContainerShip) fleet.getFreighterByName("Hansa Carrier");
+        hansa.setStatus(Status.OnVoyage);
+        hansa.setContainerCount(1799);
+
+        assertEquals(1799, fleet.getContainerCountWithStatus(Status.OnVoyage));
+
+
+    }
+
     private Fleet createFleet() {
         final String cName = "Hansa Carrier";
         final LocalDate cLaunchDate = LocalDate.of(1989, 2, 1);
